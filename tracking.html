@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/shared/general.css" />
+    <link rel="stylesheet" href="styles/shared/header.css" />
+    <link rel="stylesheet" href="styles/pages/tracking.css" />
+  </head>
+
+  <body>
+    <div class="amazon-header">
+      <div class="header-left-section">
+        <a href="amazon.html" class="header-link">
+          <img src="images/amazon-logo-white.png" class="amazon-logo" />
+          <img
+            src="images/amazon-mobile-logo-white.png"
+            class="amazon-logo-mobile"
+          />
+        </a>
+      </div>
+
+      <div class="header-middle-section">
+        <input type="text" class="text-bar" placeholder="Search" />
+        <button class="search-button">
+          <img class="search-icon" src="images/icons/search-icon.png" />
+        </button>
+      </div>
+
+      <div class="header-right-section">
+        <a href="orders.html" class="orders-link header-link">
+          <span class="returns-text">Returns</span>
+          <span class="orders-text">& orders</span>
+        </a>
+        <a href="checkout.html" class="cart-link header-link">
+          <img src="images/icons/cart-icon.png" class="cart-icon" />
+          <div class="cart-quantity">3</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="order-tracking">
+        <a class="back-to-orders-link link-primary" href="orders.html">
+          View all orders
+        </a>
+
+        <div class="delivery-date">Arriving on Monday, February 14</div>
+
+        <div class="product-info">Ibanez TOD10N Tim Henson Signature</div>
+
+        <div class="product-info">Quantity: 1</div>
+
+        <img class="product-image" src="images/products/Tod10n.jpg" />
+
+        <div class="progress-labels-container">
+          <div class="progress-label">Preparing</div>
+          <div class="progress-label current-status">Shipped</div>
+          <div class="progress-label">Delivered</div>
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
