@@ -78,6 +78,18 @@ export const products = [
   },
 
   {
+    id: "",
+    image: "images/products/hasani.jpg",
+    name: "کتاب حسنی هفته به هفته اصلا حموم نرفته اثر مریم کوثری انتشارات اردیبهشت",
+    rating: {
+      stars: 4,
+      count: 72,
+    },
+    priceCents: 33,
+    keywords: [""],
+  },
+
+  {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
     name: "Black and Gray Athletic Cotton Socks - 6 Pairs",
