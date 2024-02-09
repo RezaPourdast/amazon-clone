@@ -1,6 +1,6 @@
 export const products = [
   {
-    id: "",
+    id: "2f8d9e7c-1b3a-4c6d-9e2f-8a7b6c5d4e3f",
     image: "images/products/Tod10n.jpg",
     name: "Ibanez TOD10N Tim Henson Signature",
     rating: {
@@ -11,7 +11,7 @@ export const products = [
     keywords: [""],
   },
   {
-    id: "",
+    id: "a1b2c3d4-e5f6-g7h8-i9j1-k2l3m4n5o6p",
     image: "images/products/cat.jpg",
     name: "PetSafe Self-Cleaning Cat Litter Box with Hood - Never Scoop,Hands-Free Disposable Crystal Tray, Less Tracking, Better OdorControl",
     rating: {
@@ -22,7 +22,7 @@ export const products = [
     keywords: [""],
   },
   {
-    id: "",
+    id: "q1r2s3t4-u5v6-w7x8-y9z1-a2b3c4d5e6f",
     image: "images/products/men-navigator-sunglasses-brown.jpg",
     name: "ACBLUCE Mens Aviator Sunglasses 53mm TAC Polarized Lense MilitaryStyle Metal Frame with Bayonet Temples",
     rating: {
@@ -33,7 +33,7 @@ export const products = [
     keywords: [""],
   },
   {
-    id: "",
+    id: "g1h2i3j4-k5l6-m7n8-o9p1-q2r3s4t5u6v",
     image: "images/products/jjkF.jpg",
     name: "Bandai Namco - Jujutsu Kaisen Adverge Figure Box Set B (Nobara Kugisaki, Yuji Itadori, Satoru Gojo, Panda), Adverge Figure Box Set 2.2 inch (Pack of 4)",
     rating: {
@@ -44,7 +44,7 @@ export const products = [
     keywords: [""],
   },
   {
-    id: "",
+    id: "w1x2y3z4-a5b6-c7d8-e9f1-g2h3i4j5k6l",
     image: "images/products/تی-تاب-طلایی.jpg",
     name: "titab talaii",
     rating: {
@@ -55,7 +55,7 @@ export const products = [
     keywords: [""],
   },
   {
-    id: "",
+    id: "m1n2o3p4-q5r6-s7t8-u9v1-w2x3y4z5a6b",
     image: "images/products/berserk hoodie.jpg",
     name: "Berserk Hoodies – Harajuku Guts Eyes Graphic Hoodie",
     rating: {
@@ -66,7 +66,7 @@ export const products = [
     keywords: [""],
   },
   {
-    id: "",
+    id: "c1d2e3f4-g5h6-i7j8-k9l1-m2n3o4p5q6r",
     image: "images/products/کیف رودوشی زنانه.jpg",
     name: "کیف رودوشی زنانه اسپیور",
     rating: {
@@ -78,7 +78,7 @@ export const products = [
   },
 
   {
-    id: "",
+    id: "c1d2e3f4-g5h6-i7j8-k9l1-m2n3o4p5q6r",
     image: "images/products/hasani.jpg",
     name: "کتاب حسنی هفته به هفته اصلا حموم نرفته اثر مریم کوثری انتشارات اردیبهشت",
     rating: {
