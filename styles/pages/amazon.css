@@ -120,6 +120,7 @@
   margin-bottom: 8px;
 
   opacity: 0;
+  transition: opacity 0.5s linear 0s;
 }
 
 .added-to-cart img {
@@ -131,4 +132,8 @@
   width: 100%;
   padding: 8px;
   border-radius: 50px;
+}
+
+.added-to-cart-visible {
+  opacity: 1;
 }
