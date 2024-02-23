@@ -1,5 +1,5 @@
 import { products } from "../data/products.js";
-import { cart, addedToCart } from "../data/cart.js";
+import { cart, addedToCart, addedMessage } from "../data/cart.js";
 
 let productHtml = "";
 
@@ -23,7 +23,7 @@ products.forEach((product) => {
   <div class="product-price">$${(product.priceCents / 100).toFixed(2)}</div>
 
   <div class="product-quantity-container">
-    <select>
+    <select id="js-select-quantity">
       <option selected value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -69,30 +69,25 @@ function updateCartQuantity() {
 }
 
 const addedMessageTimeouts = {};
+let selectedQuantity = 1;
+
+document.getElementById("js-select-quantity").addEventListener("click", () => {
+  const selObj = document.getElementById("js-select-quantity");
+  const selValue = selObj.options[selObj.selectedIndex].value;
+  document.getElementById("js-select-quantity").value = selValue;
+  selectedQuantity = Number(selValue);
+});
 
 document.querySelectorAll(".added-to-cart-button").forEach((button) => {
   button.addEventListener("click", () => {
     const productId = button.dataset.productId;
-    addedToCart(productId);
+    addedToCart(productId, selectedQuantity);
     updateCartQuantity();
-
-    const addedMessage = document.querySelector(
-      `.js-added-to-cart${productId}`
-    );
-
-    addedMessage.classList.add("added-to-cart-visible");
-
-    setTimeout(() => {
-      const previousTimeoutId = addedMessageTimeouts[productId];
-      if (previousTimeoutId) {
-        clearTimeout(previousTimeoutId);
-      }
-
-      const timeoutId = setTimeout(() => {
-        addedMessage.classList.remove("added-to-cart-visible");
-      }, 2000);
-
-      addedMessageTimeouts[productId] = timeoutId;
-    });
+    addedMessage(productId, addedMessageTimeouts);
+    selectedQuantity = 1;
+    document.getElementById("js-select-quantity").selectedIndex = 0;
   });
 });
+
+// farda ino fix kon
+// faghat avalin selected kar mikone behesh id makhsos bede
