@@ -23,7 +23,7 @@ products.forEach((product) => {
   <div class="product-price">$${(product.priceCents / 100).toFixed(2)}</div>
 
   <div class="product-quantity-container">
-    <select id="js-select-quantity">
+    <select id="js-select-quantity-${product.id}">
       <option selected value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -71,11 +71,18 @@ function updateCartQuantity() {
 const addedMessageTimeouts = {};
 let selectedQuantity = 1;
 
-document.getElementById("js-select-quantity").addEventListener("click", () => {
-  const selObj = document.getElementById("js-select-quantity");
-  const selValue = selObj.options[selObj.selectedIndex].value;
-  document.getElementById("js-select-quantity").value = selValue;
-  selectedQuantity = Number(selValue);
+products.forEach((product) => {
+  document
+    .getElementById(`js-select-quantity-${product.id}`)
+    .addEventListener("click", () => {
+      const selObj = document.getElementById(
+        `js-select-quantity-${product.id}`
+      );
+      const selValue = selObj.options[selObj.selectedIndex].value;
+      document.getElementById(`js-select-quantity-${product.id}`).value =
+        selValue;
+      selectedQuantity = Number(selValue);
+    });
 });
 
 document.querySelectorAll(".added-to-cart-button").forEach((button) => {
@@ -84,10 +91,12 @@ document.querySelectorAll(".added-to-cart-button").forEach((button) => {
     addedToCart(productId, selectedQuantity);
     updateCartQuantity();
     addedMessage(productId, addedMessageTimeouts);
+
     selectedQuantity = 1;
-    document.getElementById("js-select-quantity").selectedIndex = 0;
+    products.forEach((product) => {
+      document.getElementById(
+        `js-select-quantity-${product.id}`
+      ).selectedIndex = 0;
+    });
   });
 });
-
-// farda ino fix kon
-// faghat avalin selected kar mikone behesh id makhsos bede

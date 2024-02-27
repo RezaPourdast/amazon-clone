@@ -1,6 +1,7 @@
 import {
   cart,
   removeFromCart,
+  saveToStorage,
   updateCartQuantity,
   updateDeliveryOption,
 } from "../../data/cart.js";
@@ -62,8 +63,20 @@ export function renderCheckoutPage() {
                     <span> Quantity: <span class="quantity-label js-quantity-${
                       matchingProduct.id
                     }">${cartItem.quantity}</span> </span>
-                    <span class="update-quantity-link link-primary">
+                    <input class="js-new-quantity-input-${
+                      matchingProduct.id
+                    } new-quantity-input" type="number" value="${
+      cartItem.quantity
+    }">
+                    <span class="update-quantity-link js-update-quantity-link-${
+                      matchingProduct.id
+                    } link-primary">
                       Update
+                    </span>
+                    <span class="js-save-quantity-link-${
+                      matchingProduct.id
+                    } save-quantity-link link-primary">
+                      Save
                     </span>
                     <span class="delete-quantity-link link-primary js-delete-btn" data-product-id="${
                       matchingProduct.id
@@ -140,6 +153,67 @@ export function renderCheckoutPage() {
       updateDeliveryOption(productId, deliveryOptionId);
       renderCheckoutPage();
       renderPaymentSummary();
+    });
+  });
+  let selectedQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    let matchingProduct;
+    const productId = cartItem.productId;
+    const updateBtn = document.querySelector(
+      `.js-update-quantity-link-${productId}`
+    );
+    const saveBtn = document.querySelector(
+      `.js-save-quantity-link-${productId}`
+    );
+    const quantitySelector = document.querySelector(
+      `.js-new-quantity-input-${productId}`
+    );
+
+    products.forEach((product) => {
+      if (product.id === productId) {
+        matchingProduct = product;
+      }
+    });
+
+    updateBtn.addEventListener("click", () => {
+      updateBtn.setAttribute("style", "display: none;");
+      quantitySelector.setAttribute("style", "display: inline;");
+      saveBtn.setAttribute("style", "display: inline;");
+    });
+
+    quantitySelector.addEventListener("click", () => {
+      const selObj = document.querySelector(
+        `.js-new-quantity-input-${matchingProduct.id}`
+      );
+      const selValue = selObj.value;
+      if (selValue > 0) {
+        selectedQuantity = Number(selValue);
+      }
+    });
+
+    saveBtn.addEventListener("click", () => {
+      if (
+        document.querySelector(`.js-new-quantity-input-${matchingProduct.id}`)
+          .value < 1
+      ) {
+        alert("please take more then 1");
+      } else if (selectedQuantity === 0) {
+        return;
+      } else {
+        const itemQuantity = String(selectedQuantity) - cartItem.quantity;
+        const oldLocal = localStorage.getItem("cartQuantity");
+        const newLocal = Number(oldLocal) + itemQuantity;
+        localStorage.setItem("cartQuantity", newLocal);
+        cartItem.quantity = selectedQuantity;
+
+        saveToStorage();
+        renderCheckoutPage();
+        renderPaymentSummary();
+        updateBtn.setAttribute("style", "display: inline;");
+        quantitySelector.setAttribute("style", "display: none;");
+        saveBtn.setAttribute("style", "display: none;");
+      }
     });
   });
 }

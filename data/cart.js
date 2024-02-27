@@ -20,7 +20,7 @@ if (!cartQuantity) {
   localStorage.setItem("cartQuantity", 0);
 }
 
-function saveToStorage() {
+export function saveToStorage() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
